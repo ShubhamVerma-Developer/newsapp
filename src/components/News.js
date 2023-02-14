@@ -73,19 +73,14 @@ export class News extends Component {
         return (
             <div className='container my-3'>
                 <h2>NewsMonkey - Top Headlines</h2>
+                 
                 <div className="row">
-                    <div className="col-md-4">
-                        <NewsItem title="myTitle" description="mydesc" imageUrl="https://i0.wp.com/technode.com/wp-content/uploads/2021/08/technode-news-feed-1-1.png?fit=540%2C540&ssl=1" newsUrl="TODO"/>
+                {this.state.articles.map((element)=>{
+                   return <div className="col-md-4"  key={element.url} >
+                        <NewsItem title={element.title.slice(0, 45)} description={element.description.slice(0, 88)} imageUrl={element.urlToImage} newsUrl={element.url} />
                     </div>
-                    <div className="col-md-4">
-                        <NewsItem title="myTitle" description="mydesc" />
-                    </div>
-                    <div className="col-md-4">
-                        <NewsItem title="myTitle" description="mydesc" />
-                    </div>
-                   
-                   
-                    
+                })}
+                     
                 </div>
                          
             </div>
